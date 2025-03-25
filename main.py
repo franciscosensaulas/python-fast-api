@@ -3,7 +3,8 @@ from src.app import app
 from src.database import engine, Base
 from src.controllers import user_controller
 
-# Cria as tabelas no banco de dados. Este comando verifica todos os modelos definidos em Base e cria as tabelas correspondentes no banco de dados.
+# Cria as tabelas no banco de dados. Este comando verifica todos os modelos definidos em Base e cria as
+# tabelas correspondentes no banco de dados.
 # Em um projeto real, você pode querer usar Alembic para gerenciar migrações do banco de dados.
 Base.metadata.create_all(bind=engine)
 
