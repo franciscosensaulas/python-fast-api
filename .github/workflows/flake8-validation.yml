@@ -16,7 +16,7 @@ jobs:
     steps:
       # 1. Checkout do código
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
       # Change directory
       - name: Change to back-end folder
         run: cd back-end
@@ -37,12 +37,17 @@ jobs:
         run: |
           poetry config virtualenvs.create false
 
-      # 5. Instalar as dependências com o Poetry
+      # 5. Entrar na pasta back-end
+      - name: Change to back-end directory
+        run: |
+          cd back-end
+
+      # 6. Instalar as dependências com o Poetry
       - name: Install dependencies
         run: |
           poetry install
 
-      # 6. Rodar o Flake8
+      # 7. Rodar o Flake8 na pasta back-end
       - name: Run Flake8
         run: |
-          poetry run flake8 .  # Rodar o Flake8 dentro do ambiente gerenciado pelo Poetry
+          poetry run flake8 .  # Rodar o Flake8 dentro da pasta back-end no ambiente gerenciado pelo Poetry
