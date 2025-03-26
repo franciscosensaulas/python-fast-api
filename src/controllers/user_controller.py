@@ -8,11 +8,11 @@ from src.controllers.tags import Tag
 from src.schemas import UserCreate, UserUpdate, UserResponse
 
 # Definição das rotas de endpoints
-LISTA_USUARIOS = "/v1/users"  # Endpoint para listar todos os usuários
-CADASTRO_USUARIO = "/v1/users"  # Endpoint para cadastrar um novo usuário
-ATUALIZAR_USUARIO = "/v1/users/{user_id}"  # Endpoint para atualizar um usuário existente
-APAGAR_USUARIO = "/v1/users/{user_id}"  # Endpoint para deletar um usuário
-OBTER_POR_ID_USUARIO = "/v1/users/{user_id}"  # Endpoint para obter um usuário pelo seu ID
+LISTA_USUARIOS = "/v1/usuarios"  # Endpoint para listar todos os usuários
+CADASTRO_USUARIO = "/v1/usuarios"  # Endpoint para cadastrar um novo usuário
+ATUALIZAR_USUARIO = "/v1/usuarios/{user_id}"  # Endpoint para atualizar um usuário existente
+APAGAR_USUARIO = "/v1/usuarios/{user_id}"  # Endpoint para deletar um usuário
+OBTER_POR_ID_USUARIO = "/v1/usuarios/{user_id}"  # Endpoint para obter um usuário pelo seu ID
 
 
 # Função de dependência para obter uma sessão do banco de dados

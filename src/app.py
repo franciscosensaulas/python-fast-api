@@ -5,5 +5,5 @@ router = APIRouter()
 
 
 app = FastAPI(
-    title="Projeto Exemplo"
+    title="Projeto Exemplo", docs_url="/swagger"
 )  # Cria uma instância do FastAPI, que será a aplicação que vai gerenciar as rotas da API

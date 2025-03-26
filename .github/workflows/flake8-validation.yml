@@ -1,0 +1,45 @@
+name: Flake8 Validation
+
+# Define quando o workflow será executado (push e pull request para a branch 'main')
+on:
+  push:
+    branches:
+      - main  # Ou a branch que você deseja monitorar
+  pull_request:
+    branches:
+      - main  # Ou a branch que você deseja monitorar
+
+jobs:
+  flake8:
+    runs-on: ubuntu-latest  # Usaremos uma máquina virtual Ubuntu
+
+    steps:
+      # 1. Checkout do código
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. Configurar o Python
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.12'  # Mude para a versão de Python que você está utilizando
+
+      # 3. Instalar o Poetry
+      - name: Install Poetry
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+
+      # 4. Configurar o Poetry para não criar ambientes virtuais (opcional)
+      - name: Configure Poetry to not create virtual environments
+        run: |
+          poetry config virtualenvs.create false
+
+      # 5. Instalar as dependências com o Poetry
+      - name: Install dependencies
+        run: |
+          poetry install
+
+      # 6. Rodar o Flake8
+      - name: Run Flake8
+        run: |
+          poetry run flake8 .  # Rodar o Flake8 dentro do ambiente gerenciado pelo Poetry
