@@ -17,6 +17,9 @@ jobs:
       # 1. Checkout do código
       - name: Checkout code
         uses: actions/checkout@v2
+      # Change directory
+      - name: Change to back-end folder
+        run: cd back-end
 
       # 2. Configurar o Python
       - name: Set up Python
