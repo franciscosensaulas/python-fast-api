@@ -14,7 +14,6 @@ ATUALIZAR_USUARIO = "/v1/usuarios/{user_id}"  # Endpoint para atualizar um usuá
 APAGAR_USUARIO = "/v1/usuarios/{user_id}"  # Endpoint para deletar um usuário
 OBTER_POR_ID_USUARIO = "/v1/usuarios/{user_id}"  # Endpoint para obter um usuário pelo seu ID
 
-
 # Função de dependência para obter uma sessão do banco de dados
 def get_db():
     db = SessionLocal()  # Cria uma nova sessão do banco de dados
