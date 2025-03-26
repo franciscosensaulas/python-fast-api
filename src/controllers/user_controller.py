@@ -1,5 +1,5 @@
 from typing import List
-from fastapi import HTTPException, Depends
+from fastapi import HTTPException, Depends, status, Response
 from sqlalchemy.orm import Session
 from src.app import router
 from src.database import SessionLocal
@@ -79,7 +79,6 @@ def update_user(
     # Retorna o usuário atualizado no formato UserResponse
     return UserResponse(id=user.id, name=user.name, email=user.email)
 
-
 # Endpoint para excluir um usuário
 @router.delete(
     path=APAGAR_USUARIO, tags=[Tag.Clientes.name]
@@ -90,4 +89,4 @@ def delete_user(user_id: int, db: Session = Depends(get_db)):  # Recebe o ID do 
         raise HTTPException(status_code=404, detail="User not found")  # Lança exceção se o usuário não for encontrado
     db.delete(user)  # Exclui o usuário da sessão do banco de dados
     db.commit()  # Realiza a transação no banco de dados
-    return {"detail": "User deleted"}  # Retorna uma mensagem de confirmação de que o usuário foi deletado
+    return Response(status_code=status.HTTP_204_NO_CONTENT)  # Retorna um status 204 sem conteúdo
