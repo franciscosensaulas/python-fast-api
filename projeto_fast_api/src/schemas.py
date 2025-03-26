@@ -14,6 +14,7 @@ class UserBase:
 class UserCreate(UserBase):
     pass  # A classe herda todos os campos de UserBase sem adicionar novos ou modificar os existentes
 
+
 # Classe usada para atualizar um usuário existente. O nome e o email são opcionais, permitindo que um ou
 # ambos os campos possam ser atualizados.
 @dataclass

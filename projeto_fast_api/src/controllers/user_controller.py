@@ -79,6 +79,7 @@ def update_user(
     # Retorna o usuário atualizado no formato UserResponse
     return UserResponse(id=user.id, name=user.name, email=user.email)
 
+
 # Endpoint para excluir um usuário
 @router.delete(
     path=APAGAR_USUARIO, tags=[Tag.Clientes.name]
