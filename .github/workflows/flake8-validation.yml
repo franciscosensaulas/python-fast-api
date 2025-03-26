@@ -29,25 +29,19 @@ jobs:
 
       # 3. Instalar o Poetry
       - name: Install Poetry
-        run: |
-          curl -sSL https://install.python-poetry.org | python3 -
+        run: curl -sSL https://install.python-poetry.org | python3 -
 
       # 4. Configurar o Poetry para não criar ambientes virtuais (opcional)
       - name: Configure Poetry to not create virtual environments
-        run: |
-          poetry config virtualenvs.create false
+        working-directory: ./back-end
+        run: poetry config virtualenvs.create false
 
-      # 5. Entrar na pasta back-end
-      - name: Change to back-end directory
-        run: |
-          cd back-end
-
-      # 6. Instalar as dependências com o Poetry
+      # 5. Instalar as dependências com o Poetry
       - name: Install dependencies
-        run: |
-          poetry install
+        working-directory: ./back-end
+        run: poetry install
 
-      # 7. Rodar o Flake8 na pasta back-end
+      # 6. Rodar o Flake8 na pasta back-end
       - name: Run Flake8
-        run: |
-          poetry run flake8 .  # Rodar o Flake8 dentro da pasta back-end no ambiente gerenciado pelo Poetry
+        working-directory: ./back-end
+        run: poetry run flake8 .  # Rodar o Flake8 dentro da pasta back-end no ambiente gerenciado pelo Poetry
